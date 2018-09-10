@@ -40,6 +40,7 @@ li {
     padding-left: 10px;
     padding-right: 10px;
     grid-template-columns: repeat(3, minmax(200px, 1fr));
+    grid-column-gap: 5px;
 }
 
 .para {
@@ -48,17 +49,13 @@ li {
     padding-top: 14px;
 }
 .snippet {
-    height: 400px;
-    width: 400px;
-    padding-left: 5px;
-    padding-right: 5px;
+    height: 100%;
+    width: 100%;
 }
 
 .caption {
     background: yellow;
     min-height: 50px;
-    margin-left: 5px;
-    margin-right: 5px;
     text-align: center;
     padding-left: 5px;
     padding-right: 5px;
