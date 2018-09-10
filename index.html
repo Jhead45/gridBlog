@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles.css" type="text/css">
+    <title>Intro To CSS Grid Concepts</title>
+</head>
+<body>
+    <div class="container">
+        <div class="title"><h1>Intro To CSS Grid Concepts</h1></div>
+        <div class="intro">
+            <p>Last year a really cool change to CSS was released called CSS Grid. While I have
+                never written any content like this I wanted to spend some time to go over some of the 
+                basic things you will see with CSS Grid. One thing I have noticed is that it is not uncommon
+                for people to mistake CSS Grid with a CSS framework grid system such as bootstrap. CSS Grid
+                is actual CSS and not a framework and has actually brought some cool changes to CSS. Unlike 
+                Flexbox you can easily format your page on both the Y and X axis using CSS Grid without losing
+                the ability to create responsive applications.
+            </p>
+        </div>
+        <div class="writtenBy">Written by Justin Head<br>
+            September 9, 2018<br>
+            <img src="photos/headshot.jpg" alt="Justin Head">
+        </div>
+        <div class="basic">
+            <div class="para">
+                <h3>Basic Fundamentals</h3>
+                <p>Before we dive into the deeper functionality of CSS Grid you will need to understand some fundamentals.
+                    The grid system is made up of lines. These lines will form what we call an explicit grid. An explicit grid 
+                    is a grid that you have defined in your container by setting a template of columns and or rows. In some 
+                    situations you may add a child element to the container and it may not be defined within that grid. The 
+                    child element will then be pushed on to what we call the implicit grid. An easy way to think of this is that
+                    the implicit grid is for an element that is undefined on the grid, but IMPLIED that it will be on the grid due to it's place in the container. 
+                </p>
+            </div>
+            <div class="img1"><img class="snippet" src="photos/img1.png"></div>
+            <div class="img2"><img class="snippet" src="photos/img2.png"></div>
+            <div class="img3"><img class="snippet" src="photos/img3.png"></div>
+            <div class="caption"><p>The HTML above shows all the DIVs placed in one Parent Container.
+            </p></div>
+            <div class="caption"><p>Both container examples above have the same result. The second is an example of the repeat function. The parent container
+                defines a template of rows and columns We define columns with 'grid-template-columns' and rows with 'grid-template-rows'.
+            </p></div>
+            <div class="caption"><p>The image above shows the result of the CSS Grid on the HTML. By assigning grid gap a width has been given to each line.
+                                The dev tools are set to show you the line count. This is the explicit grid.
+            </p></div>
+        </div>
+        <div class="basic">
+            <div class="para">
+                <h3>Handling the Implicit Grid</h3>
+                <p>So far all the images have shown you boxes on the Explicit Grid, but what happens when I add a Box 10 inside the container? I only
+                    have 3 rows and 3 columns defined. CSS Grid will add Box 10 into an addtional row on the Implicit Grid. You should know that by default the
+                    implicit grid is added by rows, but you could set 'grid-auto-flow: column' inside the container to switch it to add the item into columns. One issue you may run
+                    into with the implicit grid is that you have not determined the sizes for these added boxes. This can be handled with 'grid-auto-row' or 
+                    'grid-auto-column'. 
+                </p>
+            </div>
+                <div class="img4"><img class="snippet" src="photos/img4.png"></div>
+                <div class="img5"><img class="snippet" src="photos/img5.png"></div>
+                <div class="img6"><img class="snippet" src="photos/img6.png"></div>
+                <div class="caption"><p>The above image shows an example of the container with no set grid-auto-flow (defaulting it to row) and example with
+                    the 'grid-auto-flow' set to column. Both examples set 'grid-auto-columns' or 'grid-auto-rows' to 100px. This will be the size of every Box
+                    that gets placed on the implicit grid (rows will control height and columns width).
+                </p></div>
+                <div class="caption"><p>This image is the result of 'grid-auto-flow' defaulting to row and 'grid-auto-rows' being set to 100px. The child
+                    elements in this example are placed into additonal rows on the implicit grid with a 100px height.
+                </p></div>
+                <div class="caption"><p>This image is the result of 'grid-auto-flow' being set to column and 'grid-auto-rows' being set to 100px. The child
+                    elements in this example are placed into additional columns on the implicit grid with a 100px width.
+                </p></div>
+        </div>
+        <div class="basic">
+            <div class="para">
+                <h3>Sizing with CSS Grid</h3>
+                <p>CSS Grid brings some new things to sizing. Probably my favorite is a new measurement 'fr'. If you have ever tried to divide something up 
+                    with percentages you will appreciate 'fr'. In the past if you had two divs in a container and you wanted to set the first one to 75% and 
+                    the second one to 25% you could take up the full 100% of the container. The biggest issue in this is that things like borders and margins
+                    are added ontop of the percent causing you to exceed the fixed container size. With the new 'fr' it breaks the container into fractions. 
+                    You could solve the same issue by using 3fr (instead of 75%) and 1fr (instead of 25%), and it will adjust for extra sizing such as borders
+                    and margins. The 'fr' can also be mixed with any other unit such as px, rem, em, or even %.<br>
+                    <br>
+                    Another very cool thing you can do with CSS Grids is establish 'grid-gap'. You can set 'grid-row-gap', 'grid-column-gap' or 'grid-gap' for 
+                    both. This will add a width to the grid lines and basicly create margins along your boxes in the example. I have been using 'grid-gap: 10px'
+                    throughout this example. <br>
+                    <br>
+                    Sometimes when working with CSS Grid you may find that you may want one specific box to 'span' a certain number of rows or columns. This is 
+                    where we can set 'grid-column' or 'grid-row' to the Box (child element) as span 2(or the number of rows/columns we are telling it to span). It is important to know that
+                    if you span columns outside of the explicit grid you will span into the implicit grid.<br>
+                    <br>
+                    If you wish to tell a Box manually where to begin and end you can set 'grid-column' or 'grid-row' to the number it starts and the number it ends.
+                    An example would be like 'grid-column: 1 / 3', this would set the child element (or Box) to start at 1 and end at 3. TIP: If you want to take up the
+                    entire row you could set 'grid-column: 1 / -1'. <br>
+                    <br>
+                    You may have noticed that setting a span, a start, and an end point all use 'grid-row' or 'grid-column'. It is possible to combine the two with something like
+                    'grid-column: 1 / span 1' (this would set the start at 1 and the end point to be equivalent of what is span 2).
+                </p>
+            </div>
+                <div class="img7"><img class="snippet" src="photos/img7.png"></div>
+                <div class="img8"><img class="snippet" src="photos/img8.png"></div>
+                <div class="img9"><img class="snippet" src="photos/img9.png"></div>
+                <div class="caption"><p>In the image above we are using a combination of fr and px to establish column width. We also are setting Box 1 to span 2 rows.
+                    Since our template only defines 9 spaces and Box 1 is now taking two it will result in Box 9 being pushed to the implicit grid.
+                </p></div>
+                <div class="caption"><p>This image shows the results of our container and box1 styles. Now that Box 9 is on the implicit grid it is pushed to the next
+                    row with a height of 100px (thanks to 'grid-auto-rows'), but now I want Box 9 to fill the entire bottom row and become a footer.
+                </p></div>
+                <div class="caption"><p>This image shows the result of setting 'grid-column: 1 / -1' on Box 9. Now we have a footer!
+                </p></div>
+        </div>
+        <div class="basic">
+            <div class="para">
+                <h3>How can we make CSS Grid Responsive?</h3>
+                <p>
+                    Recent statistics show that over half of the web traffic is now by mobile device. This makes it more important than ever to build
+                    responsive sites. CSS Grids has several ways to make a page more responsive. One of the most common ways is to set 'grid-template-columns' with
+                    auto-fill. What auto-fill does is lets the page make the determination to how many columns it can fill into the grid.<br>
+                    <br>
+                    You may have already figured out that using 'fr' is responsive as well, but another unit of measurement we can use is 'auto'. Auto is similar to 
+                    using 'fr', but instead of limiting the width due to the fractions it will adjust for the content.<br>
+                    <br>
+                    Probably the biggest way you can make your CSS Grids responsive is to set a minmax(). This function can actually be used to replace media queries if
+                    you arn't trying to do alot of customization. The minmax sets the minimum size and the maximum size of the columns, and when we use this in combination
+                    with our 'fr' units it becomes very responsive. 
+                </p>
+            </div>
+                <div class="img10"><img class="snippet" src="photos/img10.png"></div>
+                <div class="img11"><img class="snippet" src="photos/img11.png"></div>
+                <div class="img12"><img class="snippet" src="photos/img12.png"></div>
+                <div class="caption"><p>In the image above we have two containers. The next image will be using the top container, but the last image is using the
+                    bottom container instead. The only difference in these containers are that we change 'grid-auto-rows: 100px' to 'grid-auto-rows: auto'.
+                </p></div>
+                <div class="caption"><p>This is the result of the top container. Our auto-fill setting decides we should have 3 columns based on my browser size. The width of these
+                    columns are closer to the minimum set by our minmax. I have also added Box 10 back to our HTML, but It appears I have too much content and it exceeds
+                    the 100px height that 'grid-auto-rows' is setting for boxes on our implicit grid. 
+                </p></div>
+                <div class="caption"><p>The second container changes the implicit grid boxes height from 100px to auto. I have also adjusted the browser to smaller width to
+                    show its responsiveness. The auto-fill determines that the grid should have only 2 columns. However, we didn't change the amount of rows defined. This means
+                    we have pushed Box 6, 7, and 8 onto the implicit grid. This is an example of when you may choose to use a media query instead of the minmax function. It also 
+                    appears we have fixed our content issue in Box 10 with the 'auto' setting. The other boxes on the implicit grid have an 'auto' height as well and it has adjusted to
+                    fit the content.
+                </p></div>
+        </div>
+        <div class="basic">
+            <div class="para">
+                <h3>Wrapping up CSS Grid</h3>
+                <p>
+                    The final examples above were not meant to demonstrate a final result. The purpose of those examples were to show you the different ways the grid can be 
+                    responsive, and why it is important to understand what is on your explicit and implicit grids. I also wanted to show you how minmax can be a replacement
+                    for media queries, but if you want a very custom result a media query would still be best practice. If you are creating an application that adds a lot of 
+                    content through JavaScript you would have greater control with a media query.<br>
+                    <br>
+                    CSS Grid is a pretty fun way to layout your page that has a lot to offer, but it's just a way and not the way. Compared to using frameworks you will probably
+                    spend a considerable amount more time picking up CSS Grid, but it does give you some solutions to common styling problems. I think it's also important to mention
+                    that it is not a replacement for flexbox. Within CSS Grid you can actually set more containers with other displays such as block, inline, grid, and even flex.
+                    This allows for even more customization. It would be fairly easy to set up your own framework for CSS Grid, but I don't anticpate CSS Grid to really take off until 
+                    some of the popular frameworks start picking it up, and when that happens you will want to understand these basics if your going to use it.
+                </p>
+                <div class="center">
+                    <p>
+                       If this has sparked your interest in CSS Grid, there are some advanced concepts that I skipped over and they are worth looking into:
+                    </p>
+                    <ul>
+                        <li>Auto-fit as an alternative to Auto-fill.</li>
+                        <li>You can actually overide the order in which you child elements show in the container grid by using 'order'.</li>
+                        <li>Grid-auto-flow: dense; - Is a pretty cool way to fill in empty gaps within your grid system.</li>
+                        <li>One of the coolest things you can do is define 'grid-template-areas' which allows you to name areas of your grid and set one or multiple items to that area.</li>
+                        <li>You can also look at naming-lines. This is similar to setting an alias to the lines on the grid, and it can be used when defining your rows and columns.</li>
+                        <li>It is pretty common to Nest displays within the grid, especially other grids. This can be used to make cards or style specific areas on your page.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="right">
+                <h4>Hope you enjoyed this intro to CSS Grid Concepts!</h4>
+                <h4>~Justin Head</h4>
+            </div>
+        </div>
+
+    </div>
+    
+</body>
+</html>
